@@ -1,5 +1,3 @@
-package dev;
-
 /**
  * Main class of CS-TECH Assignment.
  * @author  Mert Ege CAN

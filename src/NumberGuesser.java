@@ -1,5 +1,3 @@
-package dev;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -44,7 +42,7 @@ class NumberGuesser {
     private void fillArray(ArrayList<String> array){
         array.clear();
 
-        for(int i = 1023; i < 9877; i++){
+        for(int i = 1023; i < 9877; i++){   //number less than 1023 and more than 9876 contain duplicate digit
             if(!hasRepeat(Integer.toString(i)))
                 array.add(Integer.toString(i));
         }
@@ -62,13 +60,13 @@ class NumberGuesser {
      * @return  returns true if given two number have the same score, false otherwise.
      */
     private boolean hasSameScore(String first, String second, int firstPlus, int firstMinus){
-        int secondPlus = 0;
-        int secondMinus = 0;
+        int secondPlus = 0;     //compare variable, correct score
+        int secondMinus = 0;    //compare variable, contain digit
 
         for(int i = 0; i < second.length(); i++){
-            if(second.charAt(i) == first.charAt(i))
+            if(second.charAt(i) == first.charAt(i)) //if correct place
                 secondPlus = secondPlus + 1;
-            else if (first.indexOf(second.charAt(i)) >= 0)
+            else if (first.indexOf(second.charAt(i)) >= 0)  //if contains digit
                 secondMinus = secondMinus + 1;
         }
 
@@ -92,9 +90,9 @@ class NumberGuesser {
             }
         }
 
-        if(array.size() == 0){
+        if(array.size() == 0){  //if the possible answer array is empty, player entered wrong score
             System.err.println("No possible answer with scores you given!!!");
-            System.exit(-1);
+            System.exit(0);
         }
     }
 
@@ -124,13 +122,13 @@ class NumberGuesser {
      * @return  returns the score of the player guess.
      */
     String giveScore(String guess){
-        int plus = 0;
-        int minus = 0;
+        int plus = 0;   //compare variable, correct score
+        int minus = 0;  //compare variable, contain digit
 
         for(int i = 0; i < guess.length(); i++){
-            if(guess.charAt(i) == secretNumber.charAt(i))
+            if(guess.charAt(i) == secretNumber.charAt(i))   //if correct place
                 plus = plus + 1;
-            else if (secretNumber.indexOf(guess.charAt(i)) >= 0)
+            else if (secretNumber.indexOf(guess.charAt(i)) >= 0)    //if contains digit
                 minus = minus + 1;
         }
 

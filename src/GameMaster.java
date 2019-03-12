@@ -1,5 +1,3 @@
-package dev;
-
 import java.util.Scanner;
 
 /**
@@ -11,7 +9,7 @@ class GameMaster {
 
     // variables
     private Scanner scan;
-    private NumberGuesser computer;
+    private NumberGuesser computer; //computer ai
     private String lastPlayerScore;
     private String lastComputerScore;
 
@@ -38,7 +36,8 @@ class GameMaster {
         boolean turn = Math.random() < 0.5; //start is shuffled
 
         while(!gameEnded){
-            if(turn) {
+
+            if(turn) {  //player turn
                 playerGuess();
                 if(isGameEnded(lastPlayerScore)) {
                     System.out.println("Player wins");
@@ -48,7 +47,8 @@ class GameMaster {
                     turn = false;
                 }
             }
-            else {
+
+            else {  //computer turn
                 computerGuess();
                 if(isGameEnded(lastComputerScore)) {
                     System.out.println("Computer wins");
@@ -76,7 +76,7 @@ class GameMaster {
             playerGuess = scan.nextLine();
         }
 
-        lastPlayerScore = computer.giveScore(playerGuess);
+        lastPlayerScore = computer.giveScore(playerGuess); //get score from computer to player's guess
         System.out.println("Player score: " + lastPlayerScore);
     }
 
@@ -95,6 +95,6 @@ class GameMaster {
             lastComputerScore = scan.nextLine();
         }
 
-        computer.takeGuess(lastComputerScore);
+        computer.takeGuess(lastComputerScore); //player gives score to the computer's guess
     }
 }
