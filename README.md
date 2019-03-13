@@ -1,5 +1,7 @@
 # CS-TECH-Assignment
 
+*Read in raw mode suggested*
+
 To compile:
   javac NumberGuesser.java GameMaster.java Main.java
 
